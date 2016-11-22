@@ -1,0 +1,7 @@
+target
+Cargo.lock
+.resin-sync.yml
+Dockerfile
+build.sh
+deploy.sh
+cargo_config
