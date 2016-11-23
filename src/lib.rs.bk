@@ -43,7 +43,7 @@ impl SenseHat<LinuxI2CDevice> {
     fn read_raw_humidity(&mut self) -> f32 {
         // Wait until humidity status ready is true
         loop {
-            //TODO: handle error case here
+            // TODO: handle error case here
             let status_reg = self.environment.smbus_read_byte_data(STATUS_REG).unwrap();
             // println!("Status Register: {}", format!("{:#b}", status_reg));
 
@@ -60,6 +60,7 @@ impl SenseHat<LinuxI2CDevice> {
                     let mut output = h_reg << 8;
                     output = output | l_reg;
 
+                    //TODO: remove debugging logs
                     println!("[Humidity]: h_reg = {}", format!("{:#b}", h_reg));
                     println!("[Humidity]: l_reg = {}", format!("{:#b}", l_reg));
                     println!("[Humidity]: output = {}", format!("{:#b}", output));
