@@ -8,9 +8,9 @@ This crate implements an API to the Raspberry Pi [SenseHat](https://www.raspberr
 
 [x] get_humidity()
 [x] get_temperature()
-[] get_temperature_from_humidity()
-[] get_temperature_from_pressure()
-[] get_pressure()
+[x] get_temperature_from_humidity()
+[x] get_temperature_from_pressure()
+[x] get_pressure()
 
 #### LED Matrix
 

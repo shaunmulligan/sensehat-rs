@@ -40,6 +40,7 @@ pub struct Hts221;
 
 impl Hts221 {
     pub fn init(i2cdev: &mut LinuxI2CDevice){
+        println!("Initialising Humdity Sensor");
         // Setup the humidity sensor in read mode
         let ctl_reg = i2cdev.smbus_read_byte_data(CTRL_REG1).unwrap();
         let mut result = POWER_UP | ctl_reg;
