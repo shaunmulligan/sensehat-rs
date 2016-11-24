@@ -158,7 +158,7 @@ impl Hts221 {
 	                }
 	            }
 	        }
-	    }
+	}
 }
 
 //======= Helpers Utilities =======

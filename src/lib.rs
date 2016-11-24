@@ -10,8 +10,9 @@ const I2C_DEV: &'static str = "/dev/i2c-1";
 
 #[derive(Debug)]
 pub struct SenseHat<LinuxI2CDevice> {
-    // the i2c instance to environment sensor
-    environment: LinuxI2CDevice,
+    // the i2c instance to humidity sensor
+    hum: LinuxI2CDevice,
+    //TODO: move slope & offset into hts221.rs
     _t_slope: f32,
     _t_offset: f32,
     _h_slope: f32,
@@ -26,14 +27,14 @@ impl SenseHat<LinuxI2CDevice> {
 
         //TODO: figure out how to initialise calibration variables here, currently can't figure out how to
         // get self into the ::new constructor.
-        Ok(SenseHat { environment: dev, _t_slope: 0.0, _t_offset: 0.0, _h_slope: 0.0, _h_offset: 0.0 })
+        Ok(SenseHat { hum: dev, _t_slope: 0.0, _t_offset: 0.0, _h_slope: 0.0, _h_offset: 0.0 })
     }
 
     /// Initialise all the sensors and calibration variables
     pub fn init(&mut self) {
-        Hts221::init(&mut self.environment);
-        Hts221::configure(&mut self.environment);
-        let calib = Hts221::get_calibration(&mut self.environment);
+        Hts221::init(&mut self.hum);
+        Hts221::configure(&mut self.hum);
+        let calib = Hts221::get_calibration(&mut self.hum);
         self._t_slope = calib[0];
         self._t_offset = calib[1];
         self._h_slope = calib[2];
@@ -41,7 +42,7 @@ impl SenseHat<LinuxI2CDevice> {
     }
 
     pub fn get_humidity(&mut self) -> f32 {
-        let hum_raw = Hts221::get_raw_humidity(&mut self.environment) as i16;
+        let hum_raw = Hts221::get_raw_humidity(&mut self.hum) as i16;
         let humidity = self._h_slope*(hum_raw as f32)  + self._h_offset;
         return humidity
     }
@@ -52,7 +53,7 @@ impl SenseHat<LinuxI2CDevice> {
 
     pub fn get_temperature_from_humidity(&mut self) -> f32 {
 
-        let temp_raw = Hts221::get_raw_temperature(&mut self.environment) as f32;
+        let temp_raw = Hts221::get_raw_temperature(&mut self.hum) as f32;
         let temperature = self._t_slope*temp_raw + self._t_offset;
 
         return temperature
