@@ -42,6 +42,8 @@ impl SenseHat<LinuxI2CDevice> {
         Hts221::init(&mut self.hum);
         Hts221::configure(&mut self.hum);
         let calib = Hts221::get_calibration(&mut self.hum);
+
+        //TODO: Figure out how to do this better
         self._t_slope = calib[0];
         self._t_offset = calib[1];
         self._h_slope = calib[2];
