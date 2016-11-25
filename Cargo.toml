@@ -5,3 +5,4 @@ authors = ["Shaun Mulligan <shaun@resin.io>"]
 
 [dependencies]
 i2cdev = "0.3.1"
+framebuffer = "0.1.4"
