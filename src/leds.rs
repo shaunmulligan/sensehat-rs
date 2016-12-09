@@ -62,8 +62,8 @@ impl Leds {
 	                                match s.as_ref() {
 	                                    "RPi-Sense FB\n" => {
 
-	                                        let fb_path = name_path.parent().unwrap().join("dev");
-	                                        // println!("the fb you want is: {:?}", fb_path);
+	                                        let fb_dev = name_path.parent().unwrap().strip_prefix("/sys/class/graphics/").unwrap();
+                                        	let fb_path = PathBuf::from("/dev").join(fb_dev);
 	                                        return Ok(fb_path);
 	                                    }
 	                                    _ => {
