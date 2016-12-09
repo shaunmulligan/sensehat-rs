@@ -19,6 +19,12 @@ fn main() {
         let pressure = sense.get_pressure();
         println!("[Pressure] {} Millibars", pressure );
         
+        sense.set_pixels();
+
+        thread::sleep(ten_sec);
+
+        sense.clear();
+
         thread::sleep(ten_sec);
     }
     

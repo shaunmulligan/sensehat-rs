@@ -17,12 +17,12 @@ This crate implements an API to the Raspberry Pi [SenseHat](https://www.raspberr
 [] set_rotation()
 [] flip_h()
 [] flip_v()
-[] set_pixels()
-[] get_pixels()
+[x] set_pixels()
+[] get_pixels() -- Need to figure out how to read back from the framebuffer
 [] set_pixel()
 [] get_pixel()
 [] load_image()
-[] clear()
+[x] clear() -- currently can only clear to black.
 [] show_message()
 [] show_letter()
 [] low_light()
