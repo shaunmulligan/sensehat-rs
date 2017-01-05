@@ -1,1 +1,4 @@
-rdt push --force-build -s . 10.42.0.71
+cross build --example main --target=armv7-unknown-linux-gnueabihf
+git add .
+git commit -m "release to fleet"
+git push resin master

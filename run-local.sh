@@ -1,3 +1,4 @@
 #CARGO_TARGET_DIR=../run/artifacts cargo build --example leds --target=armv7-unknown-linux-gnueabihf --verbose
 
-cross build --example humidity --target=armv7-unknown-linux-gnueabihf
+cross build --example main --target=armv7-unknown-linux-gnueabihf
+rdt push --force-build -s . 10.42.0.71
