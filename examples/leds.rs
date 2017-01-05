@@ -21,15 +21,15 @@ fn main() {
     
     loop {
         
-        sense.set_pixels(&mut pixel_list);
+        // sense.set_pixels(&mut pixel_list);
 
         // sense.get_pixels();
 
         thread::sleep(ten_sec);
 
-        // sense.clear();
+        sense.get_pixels();
 
-        // thread::sleep(ten_sec);
+        thread::sleep(ten_sec);
     }
     
 }

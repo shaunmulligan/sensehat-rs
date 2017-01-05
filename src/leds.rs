@@ -1,6 +1,7 @@
 // extern crate framebuffer;
 // extern crate glob;
 use std::io;
+use std::io::Error as err;
 use std::io::prelude::*;
 use std::fs::File;
 use std::error::Error;
@@ -112,8 +113,16 @@ impl Leds {
 	    let _ = f.write_frame(&frame);
 	}
 
-	pub fn get_pixels(fb: &mut Framebuffer) {
-		unimplemented!();
+	pub fn get_pixels() -> Result< [u8 ; 3], err> {
+		let fb = Leds::_get_sensehat_fb_device().unwrap();
+		let mut f = try!(File::open(fb));
+		let mut buffer = vec![0u8; (LINE_LENGTH * H) as usize];
+
+		// read up to 10 bytes
+		try!(f.read(&mut buffer));
+		println!("{:?}", buffer);
+		let mut array: [u8; 3] = [0; 3];
+		return Ok(array)
 	}
 
     pub fn clear(mut f: &mut Framebuffer, c: &Color) {

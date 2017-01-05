@@ -93,7 +93,7 @@ impl SenseHat<LinuxI2CDevice, Framebuffer> {
     }
 
     pub fn get_pixels(&mut self) {
-        Leds::get_pixels(&mut self.fb);
+        Leds::get_pixels();
     }
 
     pub fn clear(&mut self) {
