@@ -1,6 +1,18 @@
-## SenseHat Rust library
+# SenseHat Rust library
 
 This crate implements an API to the Raspberry Pi [SenseHat](https://www.raspberrypi.org/products/sense-hat/). It tries as best as possible to emulate the python API defined here: https://pythonhosted.org/sense-hat/api/
+
+## Usage:
+
+Clone this repo, and make sure you have the following prerequisite installed. __Note:__ Currently this will only work on linux machines.
+
+### Prerequisite:
+* Docker
+* rustc and Cargo: install using `curl https://sh.rustup.rs -sSf | sh`
+* [cross](https://github.com/japaric/cross): install using cargo install cross
+* [resin device toolbox](https://www.npmjs.com/package/resin-device-toolbox)
+
+Once you have all that setup, you can just run the `run-local.sh` script to test your code on a resinOS device connected to the network.
 
 ### API Interface:
 

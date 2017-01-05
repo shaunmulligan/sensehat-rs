@@ -3,7 +3,7 @@ local_resinos:
   build-triggers:
     - Dockerfile: 315dca59be565aa30e08c8c16112b0c040547685ff902dbe6775f55238bdbee9
     - Cargo.toml: 8cbbfc3e6cc6a15d09a5e0104b2a3b84fe1950a15b64183cee539428eb93a67d
-    - target/armv7-unknown-linux-gnueabihf/debug/examples/main: 27fe932f4a2f35005ffdf1d7c8651b515a19c91b5cb2e51dec861fe19909c3e9
+    - target/armv7-unknown-linux-gnueabihf/debug/examples/main: b31bcd92fadf8909c4ce2e9f017c5f51bb3da4dcd5cf9d81a6b5c0bb3d649060
   environment: []
 ignore:
   - .git
